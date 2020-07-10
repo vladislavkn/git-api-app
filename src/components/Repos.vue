@@ -2,7 +2,7 @@
   <div>
     <div class="repo" v-for="(repo, i) in repos" :key="i">
       <div class="repo-title">
-        <a :href="repo.url">{{ repo.name }}</a>
+        <a class="repo__link" :href="repo.url">{{ repo.name }}</a>
         {{ repo.created_at.substring(0, 10) }}
       </div>
       <div class="repo-description" v-if="repo.description">
@@ -25,7 +25,7 @@ export default {
 <style>
 .repo {
   border-radius: 8px;
-  border: 1px solid #999;
+  border: 1px solid #aaa;
   margin-bottom: 16px;
   overflow: hidden;
 }
@@ -36,7 +36,13 @@ export default {
   padding: 8px;
   background-color: #f0f0f0;
 }
+
+.repo__link {
+  color: #000;
+}
+
 .repo-description {
-  padding: 8px;
+  border-top: 1px solid #aaa;
+  padding: 16px;
 }
 </style>
