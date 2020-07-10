@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="repos.length">
     <div class="repo" v-for="(repo, i) in repos" :key="i">
       <div class="repo-title">
         <a class="repo__link" :href="repo.url">{{ repo.name }}</a>
@@ -9,6 +9,9 @@
         {{ repo.description }}
       </div>
     </div>
+  </div>
+  <div class="not-found" v-else>
+    Sorry, no repositories were found for this request.
   </div>
 </template>
 
@@ -44,5 +47,9 @@ export default {
 .repo-description {
   border-top: 1px solid #aaa;
   padding: 16px;
+}
+
+.not-found {
+  text-align: center;
 }
 </style>

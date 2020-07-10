@@ -18,11 +18,19 @@ export default new Vuex.Store({
   },
   actions: {
     async fetchRepos({ commit, state }) {
-      const repos = await fetch(
-        `https://api.github.com/users/${state.userName}/repos`
-      ).then((res) => res.json());
-
-      commit("setRepos", repos);
+      try {
+        const repos = await fetch(
+          `https://api.github.com/users/${state.userName}/repos`
+        ).then((res) => res.json());
+        if (repos.message && repos.message == "Not Found") {
+          commit("setRepos", []);
+        } else {
+          commit("setRepos", repos);
+        }
+      } catch (e) {
+        console.error(e);
+        commit("setRepos", []);
+      }
     },
   },
   modules: {},
