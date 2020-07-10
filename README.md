@@ -1,24 +1,7 @@
 # git-api-app
+Vue.js app uses API & vuex. Watch it [live](https://git-api-app.vercel.app/) 
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Technologies I used in this project 
+* Vue
+* Vuex
+* Fetch api
