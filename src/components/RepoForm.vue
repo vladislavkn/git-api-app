@@ -15,15 +15,19 @@
 
 <script>
 export default {
-  data() {
-    return {
-      userName: "",
-    };
+  computed: {
+    userName: {
+      get() {
+        return this.$store.state.userName;
+      },
+      set(value) {
+        this.$store.commit("setUserName", value);
+      },
+    },
   },
   methods: {
     fetchRepos() {
-      if (this.userName.length)
-        this.$store.dispatch("fetchRepos", this.userName);
+      if (this.userName.length) this.$store.dispatch("fetchRepos");
     },
   },
 };
