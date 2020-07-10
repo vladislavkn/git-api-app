@@ -3,7 +3,7 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {
     repos: [],
     userName: "",
@@ -14,6 +14,12 @@ export default new Vuex.Store({
     },
     setUserName(state, userName) {
       state.userName = userName;
+    },
+    initialiseStore(state) {
+      const savedState = localStorage.getItem("app-state");
+      if (savedState) {
+        this.replaceState(Object.assign(state, JSON.parse(savedState)));
+      }
     },
   },
   actions: {
@@ -35,3 +41,9 @@ export default new Vuex.Store({
   },
   modules: {},
 });
+
+store.subscribe((mutation, state) => {
+  localStorage.setItem("app-state", JSON.stringify(state));
+});
+
+export default store;

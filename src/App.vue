@@ -12,6 +12,9 @@ import Repos from "./components/Repos";
 export default {
   name: "App",
   components: { RepoForm, Repos },
+  beforeCreate() {
+    this.$store.commit("initialiseStore");
+  },
 };
 </script>
 
