@@ -1,15 +1,17 @@
 <template>
   <div id="app">
     <RepoForm />
+    <Repos />
   </div>
 </template>
 
 <script>
 import RepoForm from "./components/RepoForm";
+import Repos from "./components/Repos";
 
 export default {
   name: "App",
-  components: { RepoForm },
+  components: { RepoForm, Repos },
 };
 </script>
 

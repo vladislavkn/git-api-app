@@ -1,0 +1,42 @@
+<template>
+  <div>
+    <div class="repo" v-for="(repo, i) in repos" :key="i">
+      <div class="repo-title">
+        <a :href="repo.url">{{ repo.name }}</a>
+        {{ repo.created_at.substring(0, 10) }}
+      </div>
+      <div class="repo-description" v-if="repo.description">
+        {{ repo.description }}
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { mapState } from "vuex";
+
+export default {
+  computed: {
+    ...mapState(["repos"]),
+  },
+};
+</script>
+
+<style>
+.repo {
+  border-radius: 8px;
+  border: 1px solid #999;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.repo-title {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  background-color: #f0f0f0;
+}
+.repo-description {
+  padding: 8px;
+}
+</style>
