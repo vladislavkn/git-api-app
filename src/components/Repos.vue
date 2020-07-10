@@ -2,7 +2,7 @@
   <div v-if="repos.length">
     <div class="repo" v-for="(repo, i) in repos" :key="i">
       <div class="repo-title">
-        <a class="repo__link" :href="repo.url">{{ repo.name }}</a>
+        <a class="repo__link" :href="repo.html_url">{{ repo.name }}</a>
         {{ repo.created_at.substring(0, 10) }}
       </div>
       <div class="repo-description" v-if="repo.description">
